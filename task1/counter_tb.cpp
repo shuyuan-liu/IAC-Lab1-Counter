@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
     top->en = 0;
 
     for (int cycle = 0; cycle < 300; cycle++) {
-        top->rst = cycle < 2 || cycle == 15;
-        top->en = cycle > 4 && cycle < 13 || cycle > 16;
+        top->rst = cycle <= 1;
+        top->en = cycle >= 5 && cycle <= 13 || cycle >= 17;
 
         for (int i = 0; i < 2; i++) {
             logger->dump(2 * cycle + i);
