@@ -1,7 +1,6 @@
 #include "Vcounter.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
-#include "vbuddy.cpp"
 
 int main(int argc, char* argv[])
 {
@@ -12,11 +11,6 @@ int main(int argc, char* argv[])
     auto logger = new VerilatedVcdC;
     top->trace(logger, 99);
     logger->open("counter.vcd");
-
-    if (!vbdOpen()) {
-        return -1;
-    }
-    vbdHeader("Lab 1: Counter");
 
     top->clk = 0;
     top->rst = 1;
@@ -32,18 +26,11 @@ int main(int argc, char* argv[])
             top->eval();
         }
 
-        vbdHex(4, (top->count >> 12) & 0xF);
-        vbdHex(3, (top->count >> 8) & 0xF);
-        vbdHex(2, (top->count >> 4) & 0xF);
-        vbdHex(1, (top->count) & 0xF);
-        vbdCycle(cycle + 1);
-
         if (Verilated::gotFinish()) {
             return 0;
         }
     }
 
-    vbdClose();
     logger->close();
     return 0;
 }
