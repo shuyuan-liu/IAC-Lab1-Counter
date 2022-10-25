@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
     top->rst = 1;
     top->en = 0;
 
-    for (int cycle = 0; cycle < 300; cycle++) {
+    for (int cycle = 0; cycle < 1000; cycle++) {
         top->rst = cycle <= 1;
         top->en = vbdFlag();
 
@@ -32,10 +32,7 @@ int main(int argc, char* argv[])
             top->eval();
         }
 
-        vbdHex(4, (int)(top->count >> 12) & 0xF);
-        vbdHex(3, (int)(top->count >> 8) & 0xF);
-        vbdHex(2, (int)(top->count >> 4) & 0xF);
-        vbdHex(1, (int)(top->count) & 0xF);
+        vbdPlot(top->count, 0, 255);
         vbdCycle(cycle + 1);
 
         if (Verilated::gotFinish()) {
