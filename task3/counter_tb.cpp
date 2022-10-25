@@ -20,14 +20,15 @@ int main(int argc, char* argv[])
 
     top->clk = 0;
     top->rst = 1;
-    top->load_en = 0;
 
     vbdSetMode(1);
 
     for (int cycle = 0; cycle < 1000; cycle++) {
+        while (!vbdFlag()) {
+            ;
+        }
+        
         top->rst = cycle <= 1;
-        top->din = vbdValue();
-        top->load_en = vbdFlag();
 
         for (int i = 0; i < 2; i++) {
             logger->dump(2 * cycle + i);

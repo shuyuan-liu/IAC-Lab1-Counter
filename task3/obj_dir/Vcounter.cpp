@@ -13,8 +13,6 @@ Vcounter::Vcounter(VerilatedContext* _vcontextp__, const char* _vcname__)
     , vlSymsp{new Vcounter__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
-    , load_en{vlSymsp->TOP.load_en}
-    , din{vlSymsp->TOP.din}
     , count{vlSymsp->TOP.count}
     , rootp{&(vlSymsp->TOP)}
 {

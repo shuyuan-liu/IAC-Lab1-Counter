@@ -33,7 +33,5 @@ VL_ATTR_COLD void Vcounter___024root___ctor_var_reset(Vcounter___024root* vlSelf
     // Body
     vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->rst = VL_RAND_RESET_I(1);
-    vlSelf->load_en = VL_RAND_RESET_I(1);
-    vlSelf->din = VL_RAND_RESET_I(8);
     vlSelf->count = VL_RAND_RESET_I(8);
 }
