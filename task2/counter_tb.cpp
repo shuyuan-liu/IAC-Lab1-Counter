@@ -20,11 +20,11 @@ int main(int argc, char* argv[])
 
     top->clk = 0;
     top->rst = 1;
-    top->en = 0;
+    top->dir = 1;
 
-    for (int cycle = 0; cycle < 1000; cycle++) {
+    for (int cycle = 0; cycle < 10000; cycle++) {
         top->rst = cycle <= 1;
-        top->en = vbdFlag();
+        top->dir = vbdFlag();
 
         for (int i = 0; i < 2; i++) {
             logger->dump(2 * cycle + i);

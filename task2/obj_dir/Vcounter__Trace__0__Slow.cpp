@@ -13,13 +13,13 @@ VL_ATTR_COLD void Vcounter___024root__trace_init_sub__TOP__0(Vcounter___024root*
     // Body
     tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
-    tracep->declBit(c+3,"en", false,-1);
+    tracep->declBit(c+3,"dir", false,-1);
     tracep->declBus(c+4,"count", false,-1, 7,0);
     tracep->pushNamePrefix("counter ");
     tracep->declBus(c+5,"WIDTH", false,-1, 31,0);
     tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
-    tracep->declBit(c+3,"en", false,-1);
+    tracep->declBit(c+3,"dir", false,-1);
     tracep->declBus(c+4,"count", false,-1, 7,0);
     tracep->popNamePrefix(1);
 }
@@ -66,7 +66,7 @@ VL_ATTR_COLD void Vcounter___024root__trace_full_sub_0(Vcounter___024root* vlSel
     // Body
     bufp->fullBit(oldp+1,(vlSelf->clk));
     bufp->fullBit(oldp+2,(vlSelf->rst));
-    bufp->fullBit(oldp+3,(vlSelf->en));
+    bufp->fullBit(oldp+3,(vlSelf->dir));
     bufp->fullCData(oldp+4,(vlSelf->count),8);
     bufp->fullIData(oldp+5,(8U),32);
 }

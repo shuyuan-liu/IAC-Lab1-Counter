@@ -25,7 +25,7 @@ void Vcounter___024root__trace_chg_sub_0(Vcounter___024root* vlSelf, VerilatedVc
     // Body
     bufp->chgBit(oldp+0,(vlSelf->clk));
     bufp->chgBit(oldp+1,(vlSelf->rst));
-    bufp->chgBit(oldp+2,(vlSelf->en));
+    bufp->chgBit(oldp+2,(vlSelf->dir));
     bufp->chgCData(oldp+3,(vlSelf->count),8);
 }
 
